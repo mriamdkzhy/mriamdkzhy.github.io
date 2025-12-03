@@ -1,0 +1,144 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color:#d9b8c4;
+    color: #241715;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    font-size: 24px;
+    background-color: white;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.7;
+}
+
+div {
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+.centered-image {
+    margin: 0 auto;
+    width: min(900px, 90%);
+    border-radius: 8px;
+}
+
+.full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+.hero {
+    position: relative;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.10) 0%,
+        rgba(0, 0, 0, 0.35) 55%,
+        rgba(217, 184, 196, 1) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+.hero #main {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px;
+    z-index: 2;
+}
+.hero #main h1 {
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.two-col {
+    display: flex;
+    gap: 24px;
+    width: min(1100px, 92%);
+    margin: 24px auto;
+    align-items: flex-start;
+}
+.two-col .col-left,
+.two-col .col-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.two-col .card {
+    background: #ffffff;
+    padding: 16px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.two-col .card h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+    .two-col {
+        flex-direction: column;
+    }
+}
+
+h1 {
+    text-align:center;
+    color: #402a2c;
+}
+
+h2 {
+    color: #402a2c;
+}
+
+.language {
+    border-radius: 5px;
+    background: pink;
+    color: #402a2c;
+    font-size: 1em;
+    padding: 3px;
+    margin: 4px;
+    white-space: nowrap;
+    line-height: 2;
+}
+
+.icons {
+    border-radius: 3px;
+    color: #402a2c;
+    font-size: 2em;
+    padding: 3px;
+    margin: 4px;
+    white-space: nowrap;
+    line-height: 2;
+}
