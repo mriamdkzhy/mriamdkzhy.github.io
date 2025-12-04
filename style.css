@@ -1,17 +1,33 @@
+:root {
+    --text-white: white;
+    /*Light Mode*/
+    --bg-light: #d9b8c4;    /*Background ~ Pastel Petal*/
+    --secondary-light: pink;    /*Secondary Colour ~ Pink*/
+    --light_accent: white;  /*Accent ~ White*/
+    --light_accent2: #957186; /*Accent2 ~ Dusty Mauve*/
+    --heading-light: #402A2C;   /*Heading ~ Deep Mocha*/
+    --text-light: #241715;  /*Text ~ Coffee Bean*/
+    --image-h: 100vh;
+
+    /*--main_accent: #957186;*/
+    /*--secondary_accent: #703D57;*/
+}
+
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
-    background-color:#d9b8c4;
-    color: #241715;
+    background-color:var(--bg-light);
+    color: var(--text-light);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 header {
     font-size: 24px;
-    background-color: white;
+    background-color: var(--light_accent);
     width: 100%;
     height: 60px;
     display: flex;
@@ -19,11 +35,22 @@ header {
     justify-content: center;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    opacity: 0.7;
+nav {
+    padding: 0.5rem;
+    background-color: var(--secondary-light);
+    text-align: center;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+nav a:hover {
+    background-color: #f3a9c1;
+    color: var(--text-light);
 }
 
 div {
@@ -37,95 +64,19 @@ footer {
     margin-top: auto;
 }
 
-.centered-image {
-    margin: 0 auto;
-    width: min(900px, 90%);
-    border-radius: 8px;
-}
-
-.full-bleed {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-}
-
-.hero {
-    position: relative;
-}
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.10) 0%,
-        rgba(0, 0, 0, 0.35) 55%,
-        rgba(217, 184, 196, 1) 100%
-    );
-    pointer-events: none;
-    z-index: 1;
-}
-.hero #main {
-    position: absolute;
-    top: 0%;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 16px;
-    z-index: 2;
-}
-.hero #main h1 {
-    color: #ffffff;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-}
-
-.two-col {
-    display: flex;
-    gap: 24px;
-    width: min(1100px, 92%);
-    margin: 24px auto;
-    align-items: flex-start;
-}
-.two-col .col-left,
-.two-col .col-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.two-col .card {
-    background: #ffffff;
-    padding: 16px 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-.two-col .card h2 {
-    margin-top: 0;
-}
-
-@media (max-width: 800px) {
-    .two-col {
-        flex-direction: column;
-    }
-}
-
 h1 {
     text-align:center;
-    color: #402a2c;
+    color: var(--text-white);
 }
 
 h2 {
-    color: #402a2c;
+    color: var(--heading-light);
 }
 
 .language {
     border-radius: 5px;
-    background: pink;
-    color: #402a2c;
+    background: var(--secondary-light);
+    color: var(--heading-light);
     font-size: 1em;
     padding: 3px;
     margin: 4px;
@@ -135,10 +86,58 @@ h2 {
 
 .icons {
     border-radius: 3px;
-    color: #402a2c;
+    color: var(--heading-light);
     font-size: 2em;
     padding: 3px;
     margin: 4px;
     white-space: nowrap;
     line-height: 2;
+}
+
+.card {
+    background: var(--light_accent);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.main {
+    margin-left: 200px;
+    margin-right: 200px;
+    align-items: center;
+    padding: 16px 20px;
+    position: relative;
+    z-index: 1;           
+    margin-top: calc(-1 * var(--image-h));
+}
+
+.back-image {
+    width: 100%;
+    height: var(--image-h);   
+    object-fit: cover;  
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.10) 0%,
+        rgba(0, 0, 0, 0.35) 65%,
+        rgba(217, 184, 196, 1) 100%
+    );
+}
+
+/* Gradient overlay on the hero image */
+.back-grad {
+    position: relative;
+}
+.back-grad::after {
+    content: "";
+    position: absolute;
+    align-items: center;
+    inset: 0;
+    pointer-events: none;
+    /* Top subtle dark, mid darker, bottom blend into page bg */
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.10) 0%,
+        rgba(0, 0, 0, 0.45) 60%,
+        var(--bg-light) 100%
+    );
 }
