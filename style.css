@@ -102,13 +102,16 @@ h2 {
 }
 
 .main {
-    margin-left: 200px;
-    margin-right: 200px;
-    align-items: center;
+    max-width: min(1100px, 92%);
+    margin: calc(-1 * var(--image-h)) auto 0; /* overlap hero, center horizontally */
     padding: 16px 20px;
     position: relative;
-    z-index: 1;           
-    margin-top: calc(-1 * var(--image-h));
+    z-index: 1;
+}
+
+/* Make hero a bit shorter on small screens so overlap feels right */
+@media (max-width: 768px) {
+    :root { --image-h: 60vh; }
 }
 
 .back-image {
