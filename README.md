@@ -8,7 +8,7 @@ Access via: https://mriamdkzhy.github.io/
 - FontAwesome
 
 ## Possible Future Additions
-- Project Page: Displaying my most recent projects
+- Dark Mode 🌙
 - Contact Page: Contact details and email form
 
 ## Preview
